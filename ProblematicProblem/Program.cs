@@ -7,7 +7,7 @@ namespace ProblematicProblem
     class Program
     {
         static bool cont = true;
-        static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
+        static List<string> Activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
         static void Main(string[] args)
         {
             Random rng = new Random();
@@ -44,21 +44,23 @@ namespace ProblematicProblem
 
             if (seeList)
             {
-                foreach (string activity in activities)
+                foreach (string activity in Activities)
                 {
                     Console.Write($"{activity} ");
                     Thread.Sleep(250);
                 }
                 Console.WriteLine();
                 Console.Write("Would you like to add any activities before we generate one? yes/no: ");
-                bool addToList = (Console.ReadLine().ToLower() == "sure") ? true : false;
+                bool addToList = (Console.ReadLine().ToLower() == "yes") ? true : false;
+
                 Console.WriteLine();
+
                 while (addToList)
                 {
                     Console.Write("What would you like to add? ");
                     string userAddition = Console.ReadLine();
-                    activities.Add(userAddition);
-                    foreach (string activity in activities)
+                    Activities.Add(userAddition);
+                    foreach (string activity in Activities)
                     {
                         Console.Write($"{activity} ");
                         Thread.Sleep(250);
@@ -84,17 +86,18 @@ namespace ProblematicProblem
                         Thread.Sleep(500);
                     }
                     Console.WriteLine();
-                    int randomNumber = rng.Next(activities.Count);
-                    string randomActivity = activities[randomNumber];
+                    int randomNumber = rng.Next(Activities.Count);
+                    string randomActivity = Activities[randomNumber];
+
                     if (userAge < 21 && randomActivity == "Wine Tasting")
                     {
                         Console.WriteLine($"Oh no! Looks like you are too young to do {randomActivity}");
                         Console.WriteLine("Pick something else!");
 
-                        activities.Remove(randomActivity);
+                        Activities.Remove(randomActivity);
 
-                        randomNumber = rng.Next(activities.Count);
-                        randomActivity = activities[randomNumber];
+                        randomNumber = rng.Next(Activities.Count);
+                        randomActivity = Activities[randomNumber];
 
                     }
                     Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
