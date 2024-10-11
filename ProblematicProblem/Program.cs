@@ -39,7 +39,7 @@ namespace ProblematicProblem
 
             Console.WriteLine();
 
-            Console.Write("Would you like to see the current list of activities? Sure/No thanks: ");
+            Console.Write("Would you like to see the current list of activities? Sure/No thanks:");
             bool seeList = (Console.ReadLine().ToLower() == "sure")? true : false;
 
             if (seeList)
@@ -67,7 +67,7 @@ namespace ProblematicProblem
                     }
                     Console.WriteLine();
                     Console.WriteLine("Would you like to add more? yes/no: ");
-                    addToList = (Console.ReadLine().ToLower() == "red") ? true : false;
+                    addToList = (Console.ReadLine().ToLower() == "redo") ? true : false;
                 }
 
                 while (cont)
@@ -102,7 +102,7 @@ namespace ProblematicProblem
                     }
                     Console.Write($"Ah got it! {userName}, your random activity is: {randomActivity}! Is this ok or do you want to grab another activity? Keep/Redo: ");
                     Console.WriteLine();
-                    cont = (Console.ReadLine().ToLower() == "red") ? true : false;
+                    cont = (Console.ReadLine().ToLower() == "redo") ? true : false;
                 }
             }
         }
